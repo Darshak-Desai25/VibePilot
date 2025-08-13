@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Setup</title>
+
+    <!-- Google Font for Styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.3s ease;
+        }
+
+        #main-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        #main-container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: #4a90e2;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            text-align: left;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="file"]:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+            outline: none;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+            transform: translateY(-2px);
+        }
+
+        /* Specific button styles */
+        #submit_answer_id {
+            background-color: #28a745;
+        }
+
+        #submit_answer_id:hover {
+            background-color: #218838;
+        }
+
+        /* Question and Answer Section Styling */
+        #show_question_id {
+            margin: 30px 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #question_id {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        #question_index_id {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Answer Display */
+        #answer_display_id {
+            margin-top: 20px;
+            background-color: #eef5ff;
+            border-left: 4px solid #4a90e2;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        #answer_display_id h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        #answer_text_id {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #main-container {
+                padding: 20px;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Icon Styles */
+        .icon {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Container for Centering Content -->
+    <div id="main-container" role="main" aria-labelledby="header_id">
+        <h1 id="header_id">AI Interview Preparation</h1>
+
+        <!-- Form to collect user details and resume -->
+        <form action="" method="post" enctype="multipart/form-data">
+            <div id="submit_details_id">
+                <label for="name">Enter Your Name:</label>
+                <input type="text" id="name_id" name="name" placeholder="John Doe" required>
+
+                <label for="job_role">Enter Job Role:</label>
+                <input type="text" id="job_role_id" name="job_role" placeholder="Software Engineer" required>
+
+                <label for="resume">Upload Your Resume (PDF):</label>
+                <input type="file" id="resume_id" name="uploaded_resume" accept="application/pdf" required>
+
+                <button type="button" id="submitformid">
+                    <i class="fas fa-play icon"></i> Start Interview
+                </button>
+            </div>
+        </form>
+
+        <!-- Section to display the interview question -->
+        <div id="show_question_id" aria-hidden="true">
+            <h3 id="question_index_id"></h3> <!-- The question index number (e.g., Question 1) -->
+            <h1 id="question_id"></h1> <!-- The interview question will appear here -->
+            <button type="button" id="generate_report_id" style="display: none;">
+                <i class="fas fa-file-alt icon"></i> Generate Report
+            </button>
+            <!-- Loader -->
+            <div id="loader" style="display: none;">
+            <p>Generating report, please wait...</p>
+            </div>
+
+        </div>
+
+        <!-- Section to display the recorded answer -->
+        <div id="answer_display_id">
+            <h2>Your Answer:</h2>
+            <p id="answer_text_id"></p> <!-- The recorded answer will be displayed here -->
+        </div>
+
+        <!-- Button to submit answer after STT -->
+        <button type="button" id="submit_answer_id" style="display: none;">Answer Completed</button>
+        <button type="button" id="download_report_id" style="display: none;">Download Report</button>
+    </div>
+
+    <!-- Include the external JavaScript file -->
+    <script src="{{ url_for('static', path='script.js') }}" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+[
+    {
+        "question": "What techniques did you employ to achieve successful deployment of the 'Chat with Database' project at Dhyey Consulting, and how did you use technologies like Hugging Face, LangChain, and OpenAI?",
+        "answer": "I don't know"
+    },
+    {
+        "question": "Can you describe your experience with containerization using Docker, particularly in the context of ensuring seamless deployment across multiple environments?",
+        "answer": ""
+    },
+    {
+        "question": "At Techxi, you developed various machine learning applications such as PDF ChatBots and image generation tools. Could you walk us through one of these projects, including the tools and methods you used?",
+        "answer": ""
+    },
+    {
+        "question": "How have you utilized LangChain and GrooqAI in your previous roles, and what specific benefits did they bring to your projects?",
+        "answer": ""
+    },
+    {
+        "question": "Given your experience with AWS, can you explain a particularly complex cloud solution you implemented and the challenges you faced during its deployment?",
+        "answer": ""
+    }
+]
