@@ -1,4 +1,5 @@
 VibePilot
+
 VibePilot is a lightweight automation tool that streamlines social media workflows—batch-scheduling posts, automating routine engagement, and managing multiple accounts from one place. Save time, stay consistent, and grow your presence without manual grind.
 
 Features
